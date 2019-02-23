@@ -41,43 +41,36 @@ var teamRaptors = [[String: Any]] ()
 var theLeague = [[String: Any]] ()
 var team = [teamSharks, teamDragons, teamRaptors]
 
-var sharksIndex = 0
-var dragonsIndex = 1
-var raptorsIndex = 2
-
 // function splitting team players into groups
-func assignPlayers(_ playerArray: [[String: Any]]) {
-    var teamIndex = 0
-    
-    for player in playerArray {
-        switch teamIndex {
-        case sharksIndex:
-            teamSharks.append(player)
-        case dragonsIndex:
-            teamDragons.append(player)
-        case raptorsIndex:
-            teamRaptors.append(player)
-        default:
-            print("Error. Bad index: \(teamIndex)")
-        }
-        
-        teamIndex += 1
-        if teamIndex == team.count {
-            teamIndex = 0
-        }
+
+
+for player in experiencedPlayers {
+    if teamDragons.count < teamSharks.count || teamDragons.count < teamRaptors.count {
+        teamDragons.append(player)
+    } else if teamSharks.count < teamDragons.count || teamSharks.count < teamRaptors.count {
+        teamSharks.append(player)
+    } else {
+        teamRaptors.append(player)
     }
 }
 
-assignPlayers(experiencedPlayers)
-assignPlayers(inExperiencedPlayers)
+for player in inExperiencedPlayers {
+    if teamDragons.count < teamSharks.count || teamDragons.count < teamRaptors.count {
+        teamDragons.append(player)
+    } else if teamSharks.count < teamDragons.count || teamSharks.count < teamRaptors.count {
+        teamSharks.append(player)
+    } else {
+        teamRaptors.append(player)
+    }
+}
 
 //checking results
 teamDragons
-team
-theLeague
+teamRaptors
+teamSharks
 
 // checking average of players needed to be in each team 
-var teamCount = 18 / 3
+// var teamCount = 18 / 3
 
 // Create team names with schedule
 
@@ -97,6 +90,7 @@ for player in teamDragons {
     if let guardians = player["guardians"], let name = player["name"] {
         let myLetter: String = "Dear \(guardians). \(name) has been placed on team \(teamNameDragon). Time of practic is as follows:  \(dragonsPractice)."
         letters.append(myLetter)
+        print(teamDragons)
     }
 }
 
@@ -105,6 +99,7 @@ for player in teamSharks {
     if let guardians = player["guardians"], let name = player["name"] {
         let myLetter: String = "Dear \(guardians). \(name) has been placed on team \(teamNameSharks). Time of practice is as follows: \(sharksPractice)."
         letters.append(myLetter)
+        print(teamNameSharks)
     }
 }
 
@@ -113,10 +108,11 @@ for player in teamRaptors {
     if let guardians = player["guardians"], let name = player["name"] {
         let myLetter: String = "Dear \(guardians). \(name) has been placed on team \(teamNameRaptors). Time of practice is as follows:  \(raptorsPractice)."
         letters.append(myLetter)
+        print(teamRaptors)
     }
 }
 
 // Print out letters to all players guardians addeed \n to it to give spacing to letter output 
-print("\n\(letters)")
+
 
 // end of project created by Ulises 
