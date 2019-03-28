@@ -90,7 +90,7 @@ for player in teamDragons {
     if let guardians = player["guardians"], let name = player["name"] {
         let myLetter: String = "Dear \(guardians). \(name) has been placed on team \(teamNameDragon). Time of practic is as follows:  \(dragonsPractice)."
         letters.append(myLetter)
-        print(teamDragons)
+        print(myLetter)
     }
 }
 
@@ -99,7 +99,7 @@ for player in teamSharks {
     if let guardians = player["guardians"], let name = player["name"] {
         let myLetter: String = "Dear \(guardians). \(name) has been placed on team \(teamNameSharks). Time of practice is as follows: \(sharksPractice)."
         letters.append(myLetter)
-        print(teamNameSharks)
+        print(myLetter)
     }
 }
 
@@ -108,7 +108,7 @@ for player in teamRaptors {
     if let guardians = player["guardians"], let name = player["name"] {
         let myLetter: String = "Dear \(guardians). \(name) has been placed on team \(teamNameRaptors). Time of practice is as follows:  \(raptorsPractice)."
         letters.append(myLetter)
-        print(teamRaptors)
+        print(myLetter)
     }
 }
 
